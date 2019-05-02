@@ -1,0 +1,2 @@
+def sortVouchers(input):
+    return ","
