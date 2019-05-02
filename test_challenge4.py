@@ -15,16 +15,15 @@ class TestChallenge4(unittest.TestCase):
 
         assert len(result.split(",")) == 2
 
-        def test_return_list_if_already_sorted(self):
+    def test_return_list_if_already_sorted(self):
         """
         Should return original list if already sorted
         """
-
-        input_list = "190112:Activated:aaaa,190205:Redeemed:bbbb"
+        input_list = "190111:Activated:ffff,190111:Available:cccc,190112:Activated:bbbb,190112:Available:aaaa,190110:Redeemded:dddd,190110:Expired:eeee"
 
         result = sortVouchers(input_list)
 
-        assert len(result.split(",")) == 2
+        assert input_list == result
 
 
     if __name__ == '__main__':
