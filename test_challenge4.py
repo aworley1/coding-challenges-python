@@ -41,5 +41,21 @@ class TestChallenge4(unittest.TestCase):
 
         assert result == "190101:Activated:aaaa,190101:Activated:bbbb,190101:Available:aaaa,190101:Available:bbbb,190301:Activated:aaaa,190301:Activated:bbbb,190301:Available:aaaa,190301:Available:bbbb"
 
+
+    def test_old_sorted(self):
+        """
+        Should return all Redeemed and Expired vouchers, sorted by:
+        End Date Desc
+        Redeemed, then expired
+        Voucher Id Asc
+        """
+
+        input = "190101:Expired:aaaa,190101:Redeemed:aaaa,190101:Expired:bbbb,190101:Redeemed:bbbb,190301:Expired:aaaa,190301:Redeemed:aaaa,190301:Expired:bbbb,190301:Redeemed:bbbb"
+
+        result = sort_vouchers(input)
+
+        print(result)
+        assert result == "190301:Redeemed:aaaa,190301:Redeemed:bbbb,190301:Expired:aaaa,190301:Expired:bbbb,190101:Redeemed:aaaa,190101:Redeemed:bbbb,190101:Expired:aaaa,190101:Expired:bbbb"
+
     if __name__ == '__main__':
         unittest.main()

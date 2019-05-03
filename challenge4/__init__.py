@@ -5,8 +5,9 @@ def sort_vouchers(input):
     old_vouchers = [voucher for voucher in vouchers if is_old(voucher)]
 
     sorted_current_vouchers = sorted(current_vouchers)
+    sorted_old_vouchers = sorted(old_vouchers, key=old_voucher_sort_key)
 
-    return ",".join(sorted_current_vouchers + old_vouchers)
+    return ",".join(sorted_current_vouchers + sorted_old_vouchers)
 
 
 def is_current(voucher):
@@ -15,3 +16,17 @@ def is_current(voucher):
 
 def is_old(voucher):
     return "Expired" in voucher or "Redeemed" in voucher
+
+
+def old_voucher_sort_key(voucher):
+    split = voucher.split(":")
+    negative_date = -int(split[0])
+
+    return (negative_date, convert_status_to_sort_key(split[1]), split[2])
+
+
+def convert_status_to_sort_key(status):
+    if status == "Redeemed":
+        return "a"
+    else:
+        return "b"
