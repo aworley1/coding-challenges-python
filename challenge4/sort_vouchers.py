@@ -1,4 +1,4 @@
-def sort_vouchers(input):
+def sortVouchers(input):
     vouchers = input.split(",")
 
     current_vouchers = [voucher for voucher in vouchers if is_current(voucher)]

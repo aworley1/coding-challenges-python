@@ -1,6 +1,6 @@
 import unittest
 
-from challenge4.sort_vouchers import sort_vouchers
+from challenge4.sort_vouchers import sortVouchers
 
 class TestChallenge4(unittest.TestCase):
     def test_correct_number_elements(self):
@@ -10,7 +10,7 @@ class TestChallenge4(unittest.TestCase):
 
         input = "190112:Activated:aaaa,190205:Redeemed:bbbb"
 
-        result = sort_vouchers(input)
+        result = sortVouchers(input)
 
         assert len(result.split(",")) == 2
 
@@ -22,7 +22,7 @@ class TestChallenge4(unittest.TestCase):
 
         input = "190205:Redeemed:bbbb,190112:Expired:aaaa,190112:Activated:aaaa,190112:Available:aaaa"
 
-        result = sort_vouchers(input)
+        result = sortVouchers(input)
 
         assert result == "190112:Activated:aaaa,190112:Available:aaaa,190205:Redeemed:bbbb,190112:Expired:aaaa"
 
@@ -36,7 +36,7 @@ class TestChallenge4(unittest.TestCase):
 
         input = "190301:Activated:aaaa,190301:Available:aaaa,190301:Activated:bbbb,190301:Available:bbbb,190101:Activated:aaaa,190101:Available:aaaa,190101:Activated:bbbb,190101:Available:bbbb"
 
-        result = sort_vouchers(input)
+        result = sortVouchers(input)
 
         assert result == "190101:Activated:aaaa,190101:Activated:bbbb,190101:Available:aaaa,190101:Available:bbbb,190301:Activated:aaaa,190301:Activated:bbbb,190301:Available:aaaa,190301:Available:bbbb"
 
@@ -51,7 +51,7 @@ class TestChallenge4(unittest.TestCase):
 
         input = "190101:Expired:aaaa,190101:Redeemed:aaaa,190101:Expired:bbbb,190101:Redeemed:bbbb,190301:Expired:aaaa,190301:Redeemed:aaaa,190301:Expired:bbbb,190301:Redeemed:bbbb"
 
-        result = sort_vouchers(input)
+        result = sortVouchers(input)
 
         assert result == "190301:Redeemed:aaaa,190301:Redeemed:bbbb,190301:Expired:aaaa,190301:Expired:bbbb,190101:Redeemed:aaaa,190101:Redeemed:bbbb,190101:Expired:aaaa,190101:Expired:bbbb"
 
@@ -62,7 +62,7 @@ class TestChallenge4(unittest.TestCase):
 
         input = "190112:Available:aaaa,190112:Activated:bbbb,190111:Available:cccc,190110:Redeemed:dddd,190110:Expired:eeee,190111:Activated:ffff"
 
-        result = sort_vouchers(input)
+        result = sortVouchers(input)
 
         assert result == "190111:Activated:ffff,190111:Available:cccc,190112:Activated:bbbb,190112:Available:aaaa,190110:Redeemed:dddd,190110:Expired:eeee"
 
