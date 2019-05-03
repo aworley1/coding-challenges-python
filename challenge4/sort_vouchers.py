@@ -19,10 +19,10 @@ def is_old(voucher):
 
 
 def old_voucher_sort_key(voucher):
-    split = voucher.split(":")
-    negative_date = -int(split[0])
+    split_voucher = voucher.split(":")
+    negative_date = -int(split_voucher[0])
 
-    return (negative_date, convert_status_to_sort_key(split[1]), split[2])
+    return (negative_date, convert_status_to_sort_key(split_voucher[1]), split_voucher[2])
 
 
 def convert_status_to_sort_key(status):

@@ -1,7 +1,6 @@
 import unittest
 
-from challenge4 import sort_vouchers
-
+from challenge4.sort_vouchers import sort_vouchers
 
 class TestChallenge4(unittest.TestCase):
     def test_correct_number_elements(self):
@@ -54,8 +53,18 @@ class TestChallenge4(unittest.TestCase):
 
         result = sort_vouchers(input)
 
-        print(result)
         assert result == "190301:Redeemed:aaaa,190301:Redeemed:bbbb,190301:Expired:aaaa,190301:Expired:bbbb,190101:Redeemed:aaaa,190101:Redeemed:bbbb,190101:Expired:aaaa,190101:Expired:bbbb"
+
+    def test_sort_the_example(self):
+        """
+        Should sort the example properly
+        """
+
+        input = "190112:Available:aaaa,190112:Activated:bbbb,190111:Available:cccc,190110:Redeemed:dddd,190110:Expired:eeee,190111:Activated:ffff"
+
+        result = sort_vouchers(input)
+
+        assert result == "190111:Activated:ffff,190111:Available:cccc,190112:Activated:bbbb,190112:Available:aaaa,190110:Redeemed:dddd,190110:Expired:eeee"
 
     if __name__ == '__main__':
         unittest.main()
