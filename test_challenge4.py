@@ -27,5 +27,16 @@ class TestChallenge4(unittest.TestCase):
 
         assert result == "190112:Activated:aaaa,190112:Available:aaaa,190205:Redeemed:bbbb,190112:Expired:aaaa"
 
+    def test_current_sorted_end_date_ascending(self):
+        """
+        Should return all Active and Available in end date order
+        """
+
+        input = "190511:Activated:aaaa,190101:Activated:aaaa,201020:Activated:aaaa,190201:Activated:aaaa"
+
+        result = sort_vouchers(input)
+
+        assert result == "190101:Activated:aaaa,190201:Activated:aaaa,190511:Activated:aaaa,201020:Activated:aaaa"
+
     if __name__ == '__main__':
         unittest.main()
